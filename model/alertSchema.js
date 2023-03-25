@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const alert= new Schema({
+const alert = new Schema({
   name: {
     type: String,     // 자료형
     required: true,   // 필수 여부
