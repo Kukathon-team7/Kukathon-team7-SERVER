@@ -1,10 +1,11 @@
-import alertService from "../services/alertService";
-
+const alertService = require("./alertController");
 
 exports.postAlert = async (req, res, next) => {
-    let { boardId } = req.params
     try {
-        let rows = await alertService.postAlert(boardId)
+        var alert = new alert();
+        alert.name = req.body.name;
+        alert.expiration_date = req.body.expiration_date;
+        let rows = await alertService.postAlert("", alert)
         return res.json(rows[0])
     } catch (err) {
         return res.status(500).json(err)

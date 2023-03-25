@@ -3,6 +3,7 @@ const path = require("path");
 const logger = require("morgan");
 require("dotenv").config();
 const foodRouter = require("./routes/foodRouter");
+const alertRouter = require("./routes/alertRouter");
 const db = require('./config/db');
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // food 라우터
 app.use("/food", foodRouter);
+app.use("/alert", alertRouter);
 
 // 서버 설정
 app.listen(app.get("port"), () => {
