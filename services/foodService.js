@@ -8,7 +8,7 @@ module.exports = {
                 const foodData = await Food.findOne({
                     name: searchWord
                 });
-                return foodData.date;          
+                return [foodData.ordinary_date, foodData.freeze_date];
           } catch (err) {
             throw err;
           }  
