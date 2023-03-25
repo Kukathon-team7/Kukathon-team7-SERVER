@@ -29,3 +29,12 @@ exports.postAlert = async (target_token, time, name) => {
         throw Error(err)
     }
 }
+
+exports.getAlert = async (target_token, time, name) => {
+    try {
+        //var alerts = mongoose
+    } catch (err) {
+        console.log(err)
+        throw Error(err)
+    }
+}
