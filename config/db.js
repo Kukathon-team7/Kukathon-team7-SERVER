@@ -1,10 +1,19 @@
-const mongodb = require('mongodb');
-const MongoClient = mongodb.MongoClient;
-const url = `mongodb+srv://opop0421:0tkW46nJP4S2HiPv@kusitums-haker.qwfha8x.mongodb.net/?retryWrites=true&w=majority`
 
-MongoClient.connect(url)
-  .then(client => {
-    console.log('mongo connected');
-    console.log(client);
-  })
-  .catch(err => console.log(err));
+const mongoose = require('mongoose');
+require('dotenv').config();
+const env = process.env;
+
+
+
+module.exports = () => {
+  function connect() {
+    const url = `mongodb+srv://${env.MONGO_USERNAME}:${env.MONGO_PASSWORD}@kusitums-haker.qwfha8x.mongodb.net/?retryWrites=true&w=majority`;
+    mongoose
+        .connect(url)
+        .then(() => console.log("MongoDB connection is made."))
+        .catch((err) => console.log(err));
+        
+  }
+  connect();
+};
+
