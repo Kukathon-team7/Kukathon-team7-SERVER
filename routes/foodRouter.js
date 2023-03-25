@@ -1,7 +1,8 @@
 var express = require('express')
 var router = express.Router()
-const BoardController = require('../controllers/foodController')
+const FoodController = require('../controllers/foodController')
 
-router.get('/list', BoardController.getBoard)
+router.get('/list', FoodController.getList)
+router.get('/detail:foodName', FoodController.getDetail)
 
 module.exports = router
