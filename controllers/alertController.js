@@ -1,8 +1,10 @@
+import alertService from "../services/alertService";
+
 
 exports.postAlert = async (req, res, next) => {
     let { boardId } = req.params
     try {
-        //let rows = await FoodService.getBoard(boardId)
+        let rows = await alertService.postAlert(boardId)
         return res.json(rows[0])
     } catch (err) {
         return res.status(500).json(err)
