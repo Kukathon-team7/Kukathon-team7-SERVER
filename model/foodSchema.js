@@ -7,9 +7,13 @@ const food = new Schema({
     required: true,   // 필수 여부
     unique: true,     // 고유 값
   },
-  date: {
+  ordinary_date: {
     type: Number,
     required: true,
+
+  },
+  freeze_date: {
+    type: Number,
 
   },
   createdAt: {
