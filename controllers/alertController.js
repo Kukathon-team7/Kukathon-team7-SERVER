@@ -4,18 +4,17 @@ import alertService from "../services/alertService";
 exports.postAlert = async (req, res, next) => {
     let { boardId } = req.params
     try {
-        let rows = await alertService.postAlert(boardId)
-        return res.json(rows[0])
+        let alert = await alertService.postAlert(boardId)
+        return res.json(alert)
     } catch (err) {
         return res.status(500).json(err)
     }
 }
 
 exports.getAlert = async (req, res, next) => {
-    let { foodName } = req.params
     try {
-        //let rows = await FoodService.getBoard(boardId)
-        return res.json(rows[0])
+        let alerts = await alertService.getAlert()
+        return res.json(alerts)
     } catch (err) {
         return res.status(500).json(err)
     }
