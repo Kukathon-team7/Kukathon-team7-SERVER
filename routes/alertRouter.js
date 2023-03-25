@@ -1,9 +1,8 @@
 var express = require('express')
 var router = express.Router()
-const FcmController = require('../controllers/alertController')
+const AlertController = require('../controllers/alertController')
 
-router.post('/alert', FcmController.postAlert)
-router.get('/alert', FcmController.getAlert)
-
+router.post('/', AlertController.postAlert)
+router.get('/', AlertController.getAlert)
 
 module.exports = router

@@ -3,21 +3,34 @@ const path = require("path");
 const logger = require("morgan");
 require("dotenv").config();
 const foodRouter = require("./routes/foodRouter");
-const db = require('./config/db');
+const alertRouter = require("./routes/alertRouter");
+const connect = require('./model');
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded( {extended : false } ));
 // express 서버의 포트 지정
 app.set("port", process.env.PORT || 3000);
+
+var admin = require("firebase-admin");
+
+// var serviceAccount = require("/utry-d0aaf-firebase-adminsdk-7tshw-fa0522a0a1.json");
+
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount)
+// });
+
 
 // express의 미들웨어 설정
 // request에 대한 로그를 기록하는 미들웨어
 app.use(logger("dev"));
-db();
+connect();
 // 정적 파일들을 접근할 수 있도록하는 미들웨어
 app.use(express.static(path.join(__dirname, "public")));
 
 // food 라우터
 app.use("/food", foodRouter);
+app.use("/alert", alertRouter);
 
 // 서버 설정
 app.listen(app.get("port"), () => {

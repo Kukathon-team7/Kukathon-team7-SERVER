@@ -20,8 +20,25 @@ exports.getDetail = async (req, res, next) => {
     }
 }
 
-exports.getSearch=async (req, res, next) => { // 상품 찾기
-    const searchWord = req.query.searchWord; // 쿼리에 담아온
-    console.log(searchWord);
-    //let totalDetails = await FoodService.getDetail(searchWord);
+exports.getSearch = async (req, res, next) => { // 상품 찾기
+    try {
+        const searchWord = req.query.searchWord; // 쿼리에 담아온
+        const foodDate = await FoodService.getDetail(searchWord);
+        console.log(foodDate)
+        var ordinary_date = foodDate.ordinary_date;
+        var freeze_date = foodDate.freeze_date;
+        console.log(freeze_date)
+        return res.status(200).json({
+            code:200,
+            message: "OK",
+            ordinary_date: ordinary_date,
+            freeze_date : freeze_date
+        });
+       
+    } catch (error) {
+        return res.status(500).json({
+            code:500,
+            message:"server error"
+        })
+    }
 }
