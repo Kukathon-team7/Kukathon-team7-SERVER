@@ -176,8 +176,7 @@ feature, fix 이하 번호는 issue 번호에 맞게 생성
 }
 
 ```
-## ⚙️ Server Architecture
-<img src= "https://user-images.githubusercontent.com/82744423/212049109-5520d587-b8b8-41a8-b53d-13f2461f358b.jpg" width= "800px">
+
 
 
 
