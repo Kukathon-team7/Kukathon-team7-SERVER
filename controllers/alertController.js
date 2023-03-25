@@ -6,7 +6,8 @@ exports.postAlert = async (req, res, next) => {
         alert.name = req.body.name;
         alert.expiration_date = req.body.expiration_date;
         let rows = await alertService.postAlert("", alert)
-        return res.json(rows[0])
+        console.log("postAlert check")
+        return res.json(rows)
     } catch (err) {
         return res.status(500).json(err)
     }
@@ -14,6 +15,17 @@ exports.postAlert = async (req, res, next) => {
 
 exports.getAlert = async (req, res, next) => {
     try {
+        const alert = await alertService.getAlert({
+            where: {
+                snsId: userId,
+            },
+        });
+        return user;
+    } catch (error) {
+        throw error;
+    }
+    try {
+        console.log("dksjfld")
         let alerts = await alertService.getAlert()
         return res.json(alerts)
     } catch (err) {

@@ -40,7 +40,16 @@ exports.postAlert = async (target_token, alert) => {
 
 exports.getAlert = async (target_token, time, name) => {
     try {
-        return await alert.find({});
+        alert.find(
+            {
+                name: name,
+            },
+            (err, items) => {
+                if (err) throw err;
+                console.log("Search Success!");
+                return items
+            }
+        );
     } catch (err) {
         console.log(err)
         throw Error(err)
