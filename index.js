@@ -9,6 +9,16 @@ const app = express();
 // express 서버의 포트 지정
 app.set("port", process.env.PORT || 3000);
 
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("/utry-d0aaf-firebase-adminsdk-7tshw-fa0522a0a1.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
+
 // express의 미들웨어 설정
 // request에 대한 로그를 기록하는 미들웨어
 app.use(logger("dev"));
