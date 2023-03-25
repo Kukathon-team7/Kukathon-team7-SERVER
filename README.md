@@ -8,6 +8,7 @@
   -MongoDB</br>
 - 개발언어</br>
   -BackEnd : Node.js </br>
+  -FrontEnd : Kotlin </br>
 
 ## 📍 Code Convention
 
