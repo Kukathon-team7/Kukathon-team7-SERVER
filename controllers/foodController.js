@@ -23,20 +23,16 @@ exports.getDetail = async (req, res, next) => {
 exports.getSearch = async (req, res, next) => { // 상품 찾기
     try {
         const searchWord = req.query.searchWord; // 쿼리에 담아온
-        const totalDetails = await FoodService.getDetail(searchWord);
-        
-        if(totalDetails === "" || totalDetails == null || (typeof totalDetails == "object" && !Object.keys(totalDetails).length)){
-            return res.status(404).json({
-                message:"not found",
-                code : 404
-            }) 
-        }
-    
+        const foodDate = await FoodService.getDetail(searchWord);
+        console.log(foodDate)
+        var ordinary_date = foodDate.ordinary_date;
+        var freeze_date = foodDate.freeze_date;
+        console.log(freeze_date)
         return res.status(200).json({
             code:200,
             message: "OK",
-            ordinary_date:totalDetails[0],
-            freeze_date : totalDetails[1]
+            ordinary_date: ordinary_date,
+            freeze_date : freeze_date
         });
        
     } catch (error) {

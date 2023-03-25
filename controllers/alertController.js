@@ -12,7 +12,7 @@ exports.postAlert = async (req, res, next) => {
         if (category === '2') {
             result.setDate(result.getDate() + use_date.toInt());
             await AlertService.postAlert(name, result);
-
+다
         } else if (category === '1' ) {
             result.setDate(result.getDate() + use_date.toInt());
             await AlertService.postAlert(name, result);
