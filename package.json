@@ -6,7 +6,8 @@
     "morgan": "^1.10.0",
     "node": "^19.8.1",
     "nodemon": "^2.0.22",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "mongodb": "^5.1.0",
   },
   "name": "kukathon-team7-server",
   "description": "",
