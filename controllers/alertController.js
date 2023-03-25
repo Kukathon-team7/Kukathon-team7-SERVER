@@ -2,13 +2,15 @@ const AlertService = require("../services/alertService");
 
 exports.postAlert = async (req, res, next) => {
     try {
-        await AlertService.postAlert();
+        console.log(req.body.name)
+        console.log(req.body.expiration_date)
+        await AlertService.postAlert("",req.body.name,req.body.expiration_date);
 
         return res.status(200).json();
     } catch (error) {
         return res.status(500).json({
             code:500,
-            message:"server error"
+            message: error
         })
     }
 }
