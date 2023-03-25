@@ -27,13 +27,14 @@ exports.getSearch=async (req, res, next) => { // 상품 찾기
         console.log(searchWord);
         const totalDetails = await FoodService.getDetail(searchWord);
         console.log(totalDetails);
-        if(totalDetails){
-            return res.status(200).json(totalDetails);
+        if(totalDetails == "" || totalDetails == null || totalDetails == undefined ){
+            return res.status(404).json({
+                message:"not found",
+                code : 404
+            }) 
         }
-        return res.status(404).json({
-            message:"not found",
-            code : 404
-        }) 
+        return res.status(200).json(totalDetails);
+       
     } catch (error) {
         return res.status(500).json({
             code:500,
