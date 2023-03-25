@@ -7,9 +7,10 @@ const alertRouter = require("./routes/alertRouter");
 const connect = require('./model');
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded( {extended : false } ));
 // express 서버의 포트 지정
 app.set("port", process.env.PORT || 3000);
-
 
 var admin = require("firebase-admin");
 

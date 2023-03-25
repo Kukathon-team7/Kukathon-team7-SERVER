@@ -1,12 +1,28 @@
 const AlertService = require("../services/alertService");
+const FoodService = require("../services/foodService");
 
 exports.postAlert = async (req, res, next) => {
     try {
-        console.log(req.body.name)
-        console.log(req.body.expiration_date)
-        await AlertService.postAlert("",req.body.name,req.body.expiration_date);
+        const {name, date, category} = req.body;
+        console.log(name);
 
-        return res.status(200).json();
+        var use_date = await FoodService.getDetail(name);
+        console.log(use_date.ordinary_date);
+        var result = new Date(date);
+        if (category === '2') {
+            result.setDate(result.getDate() + use_date.toInt());
+            await AlertService.postAlert(name, result);
+
+        } else if (category === '1' ) {
+            result.setDate(result.getDate() + use_date.toInt());
+            await AlertService.postAlert(name, result);
+
+        } else {
+            await AlertService.postAlert(name, date);
+
+        }
+
+        return res.status(200).json("ok");
     } catch (error) {
         return res.status(500).json({
             code:500,
