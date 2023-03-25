@@ -1,21 +1,3 @@
-export function postAlert() {
-    try {
-        //let rows = await FoodService.getBoard(boardId)
-        return res.json(rows[0])
-    } catch (err) {
-        return res.status(500).json(err)
-    }
-}
-
-export function getAlert() {
-    try {
-        //let rows = await FoodService.getBoard(boardId)
-        return res.json(rows[0])
-    } catch (err) {
-        return res.status(500).json(err)
-    }
-}
-
 const FoodService = require("../services/foodService");
 
 exports.getList = async (req, res, next) => {
