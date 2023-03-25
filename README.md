@@ -1,5 +1,14 @@
 # Kukathon-team7-SERVER
 
+## 🎯 Skill Stack
+
+ - AWS</br>
+  -ec2</br>
+ - DB</br>
+  -MongoDB</br>
+- 개발언어</br>
+  -BackEnd : Node.js </br>
+
 ## 📍 Code Convention
 
 <details>
@@ -176,11 +185,8 @@ feature, fix 이하 번호는 issue 번호에 맞게 생성
 }
 
 ```
-## ⚙️ Server Architecture
-<img width="1499" alt="architecture" src="https://user-images.githubusercontent.com/37439067/227740570-69304b4d-baa2-4f0b-94d4-e498cc63b1a5.png">
 
-## o Flow Chart
-![flowchart](https://user-images.githubusercontent.com/37439067/227740653-b2f1196e-c38f-442a-b679-16c967e11112.png)
+
 
 
 
