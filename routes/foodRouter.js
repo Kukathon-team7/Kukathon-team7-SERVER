@@ -5,5 +5,4 @@ const FoodController = require('../controllers/foodController')
 router.get('/list', FoodController.getList)
 router.get('/search', FoodController.getSearch)
 
-
 module.exports = router
