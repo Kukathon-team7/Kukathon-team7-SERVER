@@ -1,34 +1,34 @@
-const alertService = require("./alertController");
+const AlertService = require("../services/alertService");
 
 exports.postAlert = async (req, res, next) => {
     try {
-        var alert = new alert();
-        alert.name = req.body.name;
-        alert.expiration_date = req.body.expiration_date;
-        let rows = await alertService.postAlert("", alert)
-        console.log("postAlert check")
-        return res.json(rows)
-    } catch (err) {
-        return res.status(500).json(err)
+        await AlertService.postAlert();
+
+        return res.status(200).json();
+    } catch (error) {
+        return res.status(500).json({
+            code:500,
+            message:"server error"
+        })
     }
 }
 
 exports.getAlert = async (req, res, next) => {
     try {
-        const alert = await alertService.getAlert({
-            where: {
-                snsId: userId,
-            },
-        });
-        return user;
+        console.log("getAlert")
+        const totalDetails = await AlertService.getAlert();
+        console.log(totalDetails);
+        if(totalDetails){
+            return res.status(200).json(totalDetails);
+        }
+        return res.status(404).json({
+            message:"not found",
+            code : 404
+        })
     } catch (error) {
-        throw error;
-    }
-    try {
-        console.log("dksjfld")
-        let alerts = await alertService.getAlert()
-        return res.json(alerts)
-    } catch (err) {
-        return res.status(500).json(err)
+        return res.status(500).json({
+            code:500,
+            message:"server error"
+        })
     }
 }

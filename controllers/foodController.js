@@ -20,8 +20,7 @@ exports.getDetail = async (req, res, next) => {
     }
 }
 
-exports.getSearch=async (req, res, next) => { // 상품 찾기
-   
+exports.getSearch = async (req, res, next) => { // 상품 찾기
     try {
         const searchWord = req.query.searchWord; // 쿼리에 담아온
         console.log(searchWord);

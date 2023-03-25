@@ -1,3 +1,4 @@
+const Alert = require("../model/alertSchema");
 
 
 exports.postAlert = async (target_token, alert) => {
@@ -38,20 +39,13 @@ exports.postAlert = async (target_token, alert) => {
     }
 }
 
-exports.getAlert = async (target_token, time, name) => {
-    try {
-        alert.find(
-            {
-                name: name,
-            },
-            (err, items) => {
-                if (err) throw err;
-                console.log("Search Success!");
-                return items
-            }
-        );
-    } catch (err) {
-        console.log(err)
-        throw Error(err)
-    }
-}
+module.exports = {
+    getAlert: async (target_token, time, name) => {
+        try {
+            return await Alert.find({});
+        } catch (err) {
+            throw err;
+        }
+    },
+};
+
