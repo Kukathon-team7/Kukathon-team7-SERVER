@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-
 const food = new Schema({
   name: {
     type: String,     // 자료형
@@ -17,6 +16,6 @@ const food = new Schema({
     type: Date,
     default: Date.now
   }
-})
+});
 
 module.exports = mongoose.model('Food', food);
