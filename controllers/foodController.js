@@ -24,16 +24,20 @@ exports.getSearch=async (req, res, next) => { // 상품 찾기
    
     try {
         const searchWord = req.query.searchWord; // 쿼리에 담아온
-        console.log(searchWord);
         const totalDetails = await FoodService.getDetail(searchWord);
-        console.log(totalDetails);
+        
         if(totalDetails == "" || totalDetails == null || totalDetails == undefined ){
             return res.status(404).json({
                 message:"not found",
                 code : 404
             }) 
         }
-        return res.status(200).json(totalDetails);
+    
+        return res.status(200).json({
+            code:200,
+            message: "OK",
+            data:totalDetails
+        });
        
     } catch (error) {
         return res.status(500).json({
