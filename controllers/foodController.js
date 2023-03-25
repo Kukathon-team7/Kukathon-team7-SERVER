@@ -21,7 +21,23 @@ exports.getDetail = async (req, res, next) => {
 }
 
 exports.getSearch=async (req, res, next) => { // 상품 찾기
-    const searchWord = req.query.searchWord; // 쿼리에 담아온
-    console.log(searchWord);
-    //let totalDetails = await FoodService.getDetail(searchWord);
+   
+    try {
+        const searchWord = req.query.searchWord; // 쿼리에 담아온
+        console.log(searchWord);
+        const totalDetails = await FoodService.getDetail(searchWord);
+        console.log(totalDetails);
+        if(totalDetails){
+            return res.status(200).json(totalDetails);
+        }
+        return res.status(404).json({
+            message:"not found",
+            code : 404
+        }) 
+    } catch (error) {
+        return res.status(500).json({
+            code:500,
+            message:"server error"
+        })
+    }
 }
