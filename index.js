@@ -13,11 +13,11 @@ app.set("port", process.env.PORT || 3000);
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("/utry-d0aaf-firebase-adminsdk-7tshw-fa0522a0a1.json");
+// var serviceAccount = require("/utry-d0aaf-firebase-adminsdk-7tshw-fa0522a0a1.json");
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount)
+// });
 
 
 // express의 미들웨어 설정
