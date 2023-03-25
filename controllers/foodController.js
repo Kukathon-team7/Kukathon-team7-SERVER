@@ -26,7 +26,7 @@ exports.getSearch=async (req, res, next) => { // 상품 찾기
         const searchWord = req.query.searchWord; // 쿼리에 담아온
         const totalDetails = await FoodService.getDetail(searchWord);
         
-        if(totalDetails == "" || totalDetails == null || totalDetails == undefined ){
+        if(totalDetails == "" || totalDetails == null || totalDetails == undefined || ( totalDetails!= null && typeof totalDetails == "object" && !Object.keys(totalDetails).length)){
             return res.status(404).json({
                 message:"not found",
                 code : 404
